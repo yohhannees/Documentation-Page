@@ -1,3 +1,4 @@
 {
-    "Auth": "Authentication"
+    "Auth": "Authentication",
+    "core": "Core"
 }

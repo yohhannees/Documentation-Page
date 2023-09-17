@@ -1,0 +1,389 @@
+## axiosBaseQuery
+
+Base query function for Redux Toolkit RTK Query using Axios.
+
+**Overview**
+
+Custom base query function to make API requests using Axios. Provides default request headers and error handling.
+
+**Usage**
+```js
+import { axiosBaseQuery } from './axios-base-query';
+
+export const api = createApi({
+  baseQuery: axiosBaseQuery({ baseUrl: 'https://example.com/api/' })
+});
+```
+
+**Functionality**
+
+- Sets authorization header from session token
+- Sets custom x-* headers like personnel ID
+- Makes API request using Axios
+- Returns data on success
+- Returns error on failure
+
+**Example**
+```js
+export const api = createApi({
+  baseQuery: axiosBaseQuery({
+    baseUrl: 'https://example.com/api/'
+  }) 
+});
+```
+**Params**
+
+- `baseUrl`: Base URL for API requests
+
+**Returns**
+
+- `data`: Response data on success
+- `error`: Error object on failure
+
+## axiosClient
+
+Axios instance with default headers from session.
+
+**Overview**
+
+Preconfigured Axios client instance to make API requests.
+
+**Usage**
+```js
+import { axiosClient } from './axiosClient';
+
+axiosClient.get('/users');
+```
+
+**Functionality**
+
+- Axios client with defaults
+- Sets authorization header
+- Sets custom x-* headers like personnel ID
+- Used to make API requests
+
+**Example**
+```js
+axiosClient.get('/users')
+  .then(response => {
+    // handle response 
+  });
+```
+**Returns**
+
+Axios client instance to make requests.
+
+## collectionQueryBuilder
+
+Builds query string for collection API requests.
+
+**Overview**
+
+The collectionQueryBuilder takes in a CollectionQuery model that contains all the query parameters like filtering, sorting, pagination etc. It then maps these query parameters to a URL search params string that can be used to make API requests for collections.
+
+**Query Options**
+
+**Filtering**
+
+The filter property takes a nested array structure to allow AND/OR conditions.
+```js
+filter: [
+  [
+    {field: 'category', value: 'food'}, // AND
+    {field: 'price', value: {lte: 10}} 
+  ],
+  [  
+    {field: 'rating', value: {gte: 4}} // OR 
+  ]
+]
+```
+**Sorting**
+
+orderBy takes an array of sort objects with field and direction.
+```js
+orderBy: [
+  {field: 'price', direction: 'asc'},
+  {field: 'rating', direction: 'desc'}
+]
+```
+
+**Pagination**
+
+- `skip` and `top` are used for pagination.
+
+**Selecting Fields**
+
+select specifies the fields to return.
+
+**Usage**
+```js
+import { collectionQueryBuilder } from './collection-query-builder';
+
+const query = collectionQueryBuilder(collectionQuery);
+```
+Overall, the collectionQueryBuilder allows easily converting a query model to a URL search string for consistent queries across endpoints.
+
+**Functionality**
+
+- Maps query fields to URL params
+- Handles filters, search, sort, etc.
+- Formats for different backends
+- Finds by ID helper
+
+**Example**
+```js
+const query = collectionQueryBuilder(collectionQuery, 'ps');
+```
+**Params**
+
+- `request`: CollectionQuery model
+- `type`: Backend type - 'ps' or 'strapi'
+
+**Returns**
+
+URLSearchParam object with query string.
+
+## copyToClipboard
+
+Utility to copy text to the clipboard.
+
+**Usage**
+```js
+import { copyToClipboard } from './copy-to-clipboard';
+
+copyToClipboard('Copy this text');
+```
+
+**Params**
+
+- `textToCopy`: Text string to copy
+
+**Functionality**
+
+- Checks for Clipboard API support
+- Falls back to manual copy approach
+- Copies provided text to clipboard
+
+## extractQueryParameters
+
+Extract query parameters from a URL as an object.
+
+**Usage**
+```js
+import { extractQueryParameters } from './extract-query-parameters';
+
+const params = extractQueryParameters(url);
+```
+
+**Params**
+- `link`: URL containing query string
+
+**Returns**
+Object containing key/value pairs for each query parameter.
+
+**Functionality**
+
+- Checks for query string in URL
+- Splits into key/value pairs
+- Returns object of parameters
+
+## getCurrentSession
+
+Gets the current authenticated session data.
+
+**Usage**
+```js
+import { getCurrentSession } from './get-current-session';
+
+const session = getCurrentSession();
+```
+**Functionality**
+
+- Checks if 'session' key exists in localStorage
+- Parses and returns the session object if it exists
+- Returns null if no session exists in localStorage
+
+**Example**
+```js
+const session = getCurrentSession();
+
+if (session) {
+  // user is logged in
+} else {
+  // user is not logged in
+}
+```
+**Returns**
+
+- `session` - The current session object if it exists in localStorage
+- `null` - If no session exists in localStorage
+
+## getRegionKey
+
+Gets the key for a region label object.
+
+**Usage**
+```js
+import { getRegionKey } from './get-region-key';
+
+const key = getRegionKey(label);
+```
+
+**Functionality**
+
+- Loops through the regions array
+- Compares the English label to find a match
+- Returns the key of the matching region
+- Returns null if label does not match any region
+
+**Example**
+```js
+const label = {
+  en: 'Addis Ababa',
+  am: 'አዲስ አበባ' 
+};
+
+const key = getRegionKey(label); // returns 'addis-ababa'
+```
+**Params**
+
+- `label` - The region label object
+
+**Returns**
+
+- `key` - The matching region key if found
+- `null` - If the label does not match any region
+
+
+## getRegionLabel
+
+Gets the label object for a region key.
+
+Usage
+```js
+import { getRegionLabel } from './get-region-label';
+
+const label = getRegionLabel(key);
+
+```
+**Functionality**
+
+- Loops through the regions array
+- Compares the key to find a match
+- Returns the label object of the matching region
+- Returns null if key does not match any region
+
+**Example**
+```js
+const key = 'oromia';
+
+const label = getRegionLabel(key);
+
+// label = {
+//   en: 'Oromia',
+//   am: 'ኦሮሚያ'  
+// }
+```
+**Params**
+
+- `key` - The region key
+
+ Returns
+
+- `label` - The matching label object if found
+- `null` - If the key does not match any region
+
+
+## localPipe
+
+Gets the localized data for a provided language code.
+
+**Usage**
+```js
+import { localPipe } from './local-pipe';
+
+const text = localPipe(data, 'en');
+```
+**Functionality**
+
+- Checks for a field in the data with the given language code
+- Returns the corresponding localized data
+- Falls back to null if language not found
+
+**Example**
+```js
+const data = {
+  en: 'Hello',
+  am: 'ሰላም' 
+};
+
+const text = localPipe(data, 'am'); // 'ሰላም'
+```
+**Params**
+
+- `data` - Object containing localized fields
+- `language` - Language code to extract locale for
+
+**Returns**
+
+- `text` - Localized data for the given language code
+- `null` - If the language code is not found
+
+## toFormData
+
+Converts a JavaScript object to a FormData object. Useful for preparing data for fetch/XHR file uploads.
+
+**Usage**
+```js
+import { toFormData } from './toFormData';
+
+const formData = toFormData({
+  name: 'John',
+  age: 30,
+  files: [
+    new File(['contents'], 'file1.txt')
+  ] 
+});
+```
+
+**Params**
+
+- `data`: The JavaScript object to convert to FormData.
+
+**Returns**
+
+- A FormData object containing the data.
+
+**Functionality**
+
+- Iterates through the object recursively:
+- For nested objects, calls itself to convert to FormData and appends with name like `obj[key]`
+- For non-objects like strings/numbers, appends to FormData with key
+- Files are appended as Blobs/Files
+- This allows converting complex nested objects with files into FormData.
+
+**Example**
+```js
+const data = {
+  name: 'John',
+  age: 30,
+  profile: {
+    bio: 'Likes coding' 
+  },
+  files: [
+    new File(['contents'], 'file1.txt'),
+    new File(['contents'], 'file2.txt')
+  ]
+};
+
+const formData = toFormData(data);
+
+/*
+formData contains:
+
+- name: John 
+- age: 30
+- profile[bio]: Likes coding
+- files: [File(file1.txt), File(file2.txt)] 
+*/
+```

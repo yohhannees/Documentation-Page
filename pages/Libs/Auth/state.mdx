@@ -1,0 +1,53 @@
+## authSlice
+
+Redux slice to manage authentication state.
+
+**State**
+The auth state contains:
+
+- `sessionStatus` - Enum indicating status of session validation
+- `session` - Object containing session data if authenticated
+
+## Actions
+
+**checkSessionExists**
+
+Checks for existing logged in session and sets status.
+
+**logIn**
+
+Logs in user by setting session data and status. Saves to localStorage.
+
+**logOut**
+
+Logs out user by removing session and setting status. Removes from localStorage.
+
+**updateSession**
+
+Updates specific fields in session object. Saves to localStorage.
+
+**Async Logic**
+**refreshAccessToken**
+
+Makes API call to refresh access token if needed. Updates session with new token.
+
+**Usage**
+```js
+import { useDispatch } from 'react-redux';
+import { logIn, logOut } from './auth.slice';
+
+function Component() {
+
+  const dispatch = useDispatch();
+
+  const handleLogin = (session) => {
+    dispatch(logIn(session)); 
+  };
+
+  const handleLogout = () => {
+    dispatch(logOut());
+  };
+
+}
+```
+Use with Redux hooks to dispatch auth actions.
