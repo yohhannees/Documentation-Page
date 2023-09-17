@@ -82,7 +82,7 @@ const config: DocsThemeConfig = {
         <meta name="twitter:url" content="https://nextra.site" />
         <meta
           name="og:title"
-          content={title ? title + ' – Nextra' : 'Nextra'}
+          content={title ? title + ' –Perago ' : 'Perago'}
         />
         <meta name="og:image" content={socialCard} />
         <meta name="apple-mobile-web-app-title" content="Nextra" />
@@ -142,7 +142,7 @@ const config: DocsThemeConfig = {
           </a>
         </div>
         <p className="mt-6 text-xs">
-          © {new Date().getFullYear()} The Nextra Project.
+          © {new Date().getFullYear()} Perago Systems.
         </p>
       </div>
     )
