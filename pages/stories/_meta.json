@@ -1,3 +1,5 @@
 {
-  "index": "Folder Structure"
+  "index": "Folder Structure",
+  "Button.stories.tsx" :"Button.stories.tsx" ,
+  "date-picker.stories.tsx" :"date-picker.stories.tsx" 
 }
