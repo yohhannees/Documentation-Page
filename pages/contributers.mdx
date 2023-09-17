@@ -1,0 +1,90 @@
+
+
+## Contributers
+
+
+
+import React from 'react';
+
+export function Counter() {
+  const containerStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)', // 3 columns
+    gap: '20px',
+  };
+
+  const contributorStyle = {
+    border: '1px solid white', // Light blue border
+    padding: '20px',
+    textAlign: 'center',
+    borderRadius: '10px', // Rounded corners
+    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)', // Box shadow for depth
+  };
+
+  const imgStyle = {
+    maxWidth: '150px',
+    borderRadius: '50%',
+    margin: '0 auto', // Center the image horizontally
+  };
+
+  const linkStyle = {
+    margin: '4px',
+    padding: '10px 0 0 0',
+    textDecoration: 'none',
+    color: 'gray',
+    fontWeight: 'bold',
+  };
+
+  return (
+    <div style={containerStyle}>
+      <div style={contributorStyle}>
+        <img src="https://media.licdn.com/dms/image/D4E35AQEOlmOALQD_fQ/profile-framedphoto-shrink_200_200/0/1691937897286?e=1695513600&v=beta&t=I6RAGvIvZXvqFjEU8L4bYhc12MvUzJjF9zB9wQpEFqs" alt="Anella Negash" style={imgStyle} />
+        <h2> Anella </h2>
+        <div>
+          <a href="https://github.com/Bamose" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+            GitHub
+          </a>
+          <a href="https://t.me/bamose" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+            Telegram
+          </a>
+          <a href="mailto:anellanegash@gmail.com" style={linkStyle}>Email</a>
+        </div>
+      </div>
+      <div style={contributorStyle}>
+        <img src="https://cdn4.telegram-cdn.org/file/t0i068Rp52APjNOKrXaNQ3CDja7e7_LbVBpS5oozFIdpbKaoo5BcGCqlpYOINMNsEUy3pj91a3_YZiz0-v3PrV1FQAr83kSa882ffdfHXL0rEfYV6ehh1Ctu3c7hoSWQz4qstJfQJimJoRPI41GWPy9LCICvMbeV56EwNjPSWC5LzOCTtA1YzzVAEwRhGs0WV8v2aHhBnmjBmT6FWbpSSZYx-1hg81mw8Trf4wjktqgjJFXZvqNORSINGyOk8F0hGknsbWAEyAhDjHy41hBjfK8y5N6JOXtoUSwjxCEmYcPDpba2sjLYQjNCReUibiNqLqWhaea3bQpXXWnzHS3UcA.jpg" alt="Yodahe Ketema" style={imgStyle} />
+        <h2>Yodahe </h2>
+        <div>
+          <a href="https://github.com/yowdahe" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+            GitHub
+          </a>
+          <a href="https://t.me/BLUEYOWDA" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+            Telegram
+          </a>
+          <a href="mailto:ketemayodahe@gmail.com" style={linkStyle}>Email</a>
+        </div>
+      </div>
+      <div style={contributorStyle}>
+        <img src="https://media.licdn.com/dms/image/D4D35AQErf4L5WU9OVQ/profile-framedphoto-shrink_200_200/0/1694121046315?e=1695513600&v=beta&t=UgApmLFU3-tkmmD3XFHxvdSlOJRHzzCAOMaEfN4rM6M" alt="Yohannes Getachew" style={imgStyle} />
+        <h2>Yohannes</h2>
+        <div>
+          <a href="https://github.com/Yohhannees" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+            GitHub
+          </a>
+          <a href="https://t.me/Yohhannees" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+            Telegram
+          </a>
+          <a href="mailto:yohannesgetachewerieso@gmail.com" style={linkStyle}>Email</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+ 
+<Counter> </Counter>
+
+
+
+
+

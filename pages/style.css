@@ -1,0 +1,29 @@
+/* contributors.css */
+
+.contributor {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.contributor img {
+  max-width: 150px;
+  border-radius: 50%;
+  padding-top: 5px;
+}
+
+.links {
+  margin-top: 10px;
+}
+
+.links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}

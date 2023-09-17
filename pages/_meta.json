@@ -6,6 +6,10 @@
     "title": "About",
     "type": "page"
   },
+   "contributers": {
+    "title": "Contributers",
+    "type": "page"
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
