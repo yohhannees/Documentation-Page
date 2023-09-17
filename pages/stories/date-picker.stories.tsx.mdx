@@ -1,0 +1,102 @@
+
+import { Steps } from 'nextra/components'
+import { Callout } from 'nextra/components'
+
+<Steps>
+
+## Syntax
+```js
+import * as React from 'react';
+import { DatePicker } from '../libs/date-picker/src';
+
+export default {
+  title: 'date-picker',
+  component: DatePicker,
+};
+function setDateResult(date) {
+  console.log('Dasboard', date);
+}
+const selectedDate = new Date(Date.now());
+export const Page = (args) => {
+  return (
+    <DatePicker setDateResult={setDateResult} selectedDate={selectedDate} />
+  );
+};
+```
+
+### Props
+
+ 
+<Callout type="info" emoji="ℹ️">
+  ```setDateResult``` (function): A callback function that is called when a date is selected. It receives the selected date as a parameter.
+
+```selectedDate``` (Date): The initially selected date in the Date Picker.
+</Callout>
+
+
+### Code Description:
+
+#### Import Statements:
+
+The code begins by importing the necessary dependencies. It uses React to create a component, and it imports the ```DatePicker``` component from a module located at ```../libs/date-picker/src```
+#### Storybook Configuration:
+
+The code sets up a configuration for Storybook. Storybook is a development environment for UI components, allowing developers to visualize and interact with isolated components. In this configuration:
+The ```title``` is set to ```date-picker'=```, indicating that this Storybook story will focus on the ```Date Picker``` component.
+The ```DatePicker``` component is associated with this story.
+#### Function ```setDateResult```:
+
+The ```setDateResult``` function is defined, which appears to be a callback function. It logs the selected ```date``` to the console with the message ```Dashboard```
+Initialization of ```selectedDate```:
+
+An ```initial date```, ```selectedDate```, is created using the ```Date``` constructor, set to the current date and time.A React functional component  is defined. the ```DatePicker``` component is rendered.
+#### It receives two props:
+```setDateResult```: The setDateResult callback function.
+```selectedDate```: The selectedDate variable, which sets the initial date for the Date Picker.
+## Usage
+```js
+import React, { useState } from 'react';
+import { DatePicker } from '../libs/date-picker/src';
+
+function MyDatePickerApp() {
+  // Define a state variable to store the selected date
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  // Callback function to handle date selection
+  const handleDateSelection = (date) => {
+    // Update the selected date in the state
+    setSelectedDate(date);
+    // You can perform other actions with the selected date here
+    console.log('Selected Date:', date);
+  };
+
+  return (
+    <div>
+      <h1>Date Picker Example</h1>
+      {/* Render the DatePicker component */}
+      <DatePicker
+        selectedDate={selectedDate}
+        onSelect={handleDateSelection}
+      />
+      <p>Selected Date: {selectedDate.toDateString()}</p>
+    </div>
+  );
+}
+
+export default MyDatePickerApp;
+```
+In this example:
+
+We import the ```DatePicker``` component from ```../libs/date-picker/src```
+
+Inside the ```MyDatePickerApp``` component:
+
+We use the ```useState``` hook to create a state variable called ```selectedDate``` to keep track of the selected date. It is initialized with the current date using the ```new Date()``` constructor.
+
+We define the ```handleDateSelection``` function as a callback to handle date selection. When a date is selected, this function is called, and it updates the ```selectedDate``` state variable with the chosen date.
+
+The ```<DatePicker />``` component is rendered, and it receives the ```selectedDate``` state variable as well as the ```handleDateSelection``` function as props.
+
+We also display the selected date beneath the ```DatePicker``` to show the currently selected date in the UI.
+
+</Steps>
