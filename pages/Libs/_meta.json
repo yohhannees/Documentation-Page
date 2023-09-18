@@ -1,4 +1,5 @@
 {
     "Auth": "Authentication",
-    "core": "Core"
+    "core": "Core",
+    "date-picker": "Date Picker"
 }
