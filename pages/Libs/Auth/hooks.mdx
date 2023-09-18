@@ -1,0 +1,48 @@
+## UseSession 
+
+Custom hook to manage session state and authentication logic.
+
+**usage**
+
+```js
+import { useSession } from './use-session';
+
+function Component() {
+  const { session, logOut } = useSession();
+  
+  //...
+}
+```
+
+**Return Value**
+Returns an object with:
+
+- `session` - the session state object
+- `sessionStatus` - status of session authentication
+- `logOut` - function to log out user
+- `setCurrentOrganizationUnit` - sets organization/unit in session
+
+**Functionality**
+
+- Fetches session state from Redux store
+- Checks if access token expired and refreshes
+- Logs out on expired refresh token
+- Navigates to organization admin page if authorized
+- Updates session with selected organization/unit
+
+**Example**
+```js
+function Component() {
+
+  const { session, logOut } = useSession();
+
+  return (
+    <nav>
+      <p>Welcome {session.name}</p> 
+      <button onClick={logOut}>Logout</button>
+    </nav>
+  );
+
+}
+```
+This shows how to destructure and use the session state and logout function in a component.

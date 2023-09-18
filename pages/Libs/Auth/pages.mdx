@@ -1,0 +1,58 @@
+## AcceptInvitationPage
+
+Page for completing invitation acceptance workflow.
+
+**Purpose**
+
+This page provides the branded layout and contains the main functionality for accepting an account invitation. It is meant to be rendered after the user clicks the invitation link.
+
+**Contents**
+
+- Renders the `AcceptInvitationForm` component
+- Contains logic for accepting invite and creating account
+- Displays Ethiopia emblem and Perago logo
+- Provides copyright footer text
+
+**Usage**
+```js
+import { AcceptInvitationPage } from './accept-invitation-page';
+
+function App() {
+  return <AcceptInvitationPage />; 
+}
+```
+This will render the complete invitation acceptance page when imported.
+
+## LoginPage
+
+Full login page with branding, info text, and form.
+
+**Purpose**
+
+This page provides the branded layout and authentication form to allow users to login. It contains all the required components for handling login logic and display.
+
+**Contents**
+
+- Renders `LoginForm`
+- Validates credentials
+- Makes authentication API call
+- Handles redirects on success
+- Displays intro text about eServices
+- Renders Ethiopia emblem and Perago logo
+- Accepts `onLogin` callback prop for post-login redirect
+
+**Usage**
+```js
+import { LoginPage } from './login-page';
+
+function App() {
+
+  const handleLogin = () => {
+    // redirect after login
+  };
+  
+  return <LoginPage onLogin={handleLogin} />;
+
+}
+```
+Pass optional `onLogin` callback to redirect after successful login.

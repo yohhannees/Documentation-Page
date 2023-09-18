@@ -1,0 +1,52 @@
+## regions
+
+Array of region objects with keys and localized labels.
+
+**Overview**
+
+The regions constant exports an array of objects, each representing a region.
+
+Each region object contains:
+
+- `value` - Unique key for the region
+- `label` - Localized name object with en and am fields
+
+This provides a standardized set of region keys and names for use in an application.
+
+**Usage**
+```js
+import { regions } from './regions';
+
+// Get region label by key  
+const label = regions.find(r => r.value === 'aa').label;
+
+// Get region key by English name
+const key = regions.find(r => r.label.en === 'Oromia').value;
+```
+The regions array can be searched to find the key or label as needed.
+
+Example
+```js
+// Display region selector
+
+import { regions } from './regions';
+
+function RegionSelect() {
+
+  return (
+    <select>
+      {regions.map(region => (
+        <option key={region.value} value={region.value}>
+          {region.label.en}  
+        </option>
+      ))}
+    </select>
+  );
+
+}
+```
+This loops through the regions to generate a select options.
+
+**Data**
+
+Contains keys and names for all regions in Ethiopia.
