@@ -1,0 +1,170 @@
+## LoginForm
+
+The LoginForm component provides a login form to authenticate users.It imports various
+dependencies and hooks such as `yupResolver` from `@hookform/resolvers/yup`, `Button`,
+`PasswordInput`, and `TextInput` from `@mantine/core`, `notify` from `@ui`, `useRouter` from
+`next/router`, `useState` from `react`, `useForm` from `react-hook-form`, `useDispatch` from
+`react-redux`, and `yup` for form validation.
+
+**Usage**
+
+```js
+import LoginForm from './login-form';
+
+function LoginPage() {
+  return <LoginForm />;
+}
+```
+
+**Props**
+
+- `onLogin` - callback when login succeeds
+
+**Functionality**
+
+- Checks session status
+- Redirects to login if not authenticated
+- Renders child components if authenticated
+- Displays loading state while checking session
+
+**Example**
+
+```jsx
+function LoginPage() {
+
+  const handleLogin = () => {
+    // redirect after login  
+  };
+  
+  return (
+    <LoginForm onLogin={handleLogin} />
+  );
+
+}
+```
+## AcceptInvitationForm
+
+The AcceptInvitationForm component allows users to accept an account invitation. Users can set a password if creating a new account.
+
+**Usage**
+
+```js
+import AcceptInvitationForm from './accept-invitation-form';
+
+function InvitePage() {
+  return <AcceptInvitationForm />; 
+}
+```
+**Props**
+
+- None
+
+**Functionality**
+
+- Displays welcome message with user's name
+- Shows username from invitation
+- Allows setting password if new account
+- Calls API to accept invitation on submit
+- Displays success or error alerts
+- Redirects on success
+
+**Example**
+
+```jsx
+function InvitePage() {
+
+  const handleAccept = () => {
+    // handle invitation accepted
+  };
+
+  return (
+    <AcceptInvitationForm />;
+  );
+
+}
+```
+## OrganizationSelector
+
+The OrganizationSelector component displays an organization/unit selector for users with access to multiple organizations.
+
+**Usage**
+
+```js
+import { OrganizationSelector } from './organization-selector';
+
+function AppLayout({ children }) {
+  return (
+    <OrganizationSelector>
+      {children}
+    </OrganizationSelector>
+  );
+}
+```
+
+**Functionality**
+
+- Fetches organizations and units from session
+- Allows selecting organization and unit
+- Stores selections in session
+- Renders child components once selection complete
+- Provides logout button
+
+**Example**
+
+```jsx
+function AppLayout({ children }) {
+
+  return (
+    <OrganizationSelector>
+       <MainLayout>
+         {children}
+       </MainLayout>
+    </OrganizationSelector>
+  );
+
+}
+```
+This will display the organization selector then render the MainLayout once selections are made.
+
+## ProtectedRoute
+
+The ProtectedRoute component protects a route from unauthenticated access.
+
+**Usage**
+
+```js
+import { ProtectedRoute } from './protected-route';
+
+function App() {
+  return (
+    <ProtectedRoute>
+      <DashboardPage />
+    </ProtectedRoute>
+  );
+}
+```
+**Props**
+
+- `children` - components to protect
+
+**Functionality**
+
+- Checks session status
+- Redirects to login if not authenticated
+- Renders child components if authenticated
+- Displays loading state while checking session
+
+**Example**
+
+```jsx
+function App() {
+
+  return (
+    <ProtectedRoute>
+      <DashboardPage />
+    </ProtectedRoute>
+  );
+
+}
+```
+This will redirect to login if unauthenticated before rendering the dashboard.

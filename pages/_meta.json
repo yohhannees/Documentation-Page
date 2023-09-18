@@ -1,10 +1,13 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "date-picker": "Date Picker",
+
+  "index": "Getting Started",
+  "Installation": "Installation",
   "about": {
     "title": "About",
+    "type": "page"
+  },
+   "contributers": {
+    "title": "Contributers",
     "type": "page"
   },
   "contact": {

@@ -1,0 +1,73 @@
+## Collection Model
+
+Model interfaces for fetching and querying collections.
+
+**CollectionQuery**
+
+Interface for collection query parameters.
+
+Properties:
+
+- `search` - Global search term
+- `searchFrom`- Fields to search
+- `skip` - Number of items to skip
+- `top` - Number to take
+- `index` - ???
+- `orderBy` - Sort order fields
+- `groupBy` - Grouping fields
+- `filter` - Filter conditions
+- `select` - Fields to return
+- `count` - Whether to return total count
+- `locale` - Locale for translations
+- `includes` - Related models to include
+
+**DetailQuery**
+
+ Interface for detail query parameters.
+
+Properties:
+
+- `filter` - Filter conditions
+- `select` - Fields to return
+- `locale` - Locale for translations
+
+**Order** 
+
+Sort order field and direction.
+
+Properties:
+
+- `field` - Field to sort by
+- `direction` - 'asc' or 'desc'
+
+**Filter**
+
+Filter condition with field, value and operator.
+
+Properties:
+
+- `field` - Field to filter by
+- `value` - Value to match
+- `operator`- Comparison operator
+- `name` - ???
+
+**Collection**
+
+Generic collection interface.
+
+Properties:
+
+- `total` - Total count
+- `items` - Array of items
+
+**CollectionResult**
+
+Result interface for collection queries.
+
+Properties:
+
+- `total` - Total count
+- `collectionQuery` - Original query parameters
+- `items` - Array of items
+- `isLoading` - Loading status
+- `error` - Any error

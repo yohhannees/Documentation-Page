@@ -2,17 +2,18 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  // logo: <img src="http://peragosystems.com/assets/images/perago2.png"></img>,
+  logo:<p>perago</p>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: "http://196.189.44.48/Perago/eService-training/_git/eService-training",
   },
   chat: {
-    link: 'https://discord.com',
+    link: "https://discord.com",
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
   footer: {
-    text: 'Nextra Docs Template',
+    text: "Perago E-Service Documentation",
   },
-}
+};
 
 export default config

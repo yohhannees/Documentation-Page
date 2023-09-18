@@ -1,0 +1,132 @@
+import { Steps } from 'nextra/components'
+import { Callout } from 'nextra/components'
+
+<Steps>
+
+## Syntax
+```js
+
+import React from 'react';
+import './button.css';
+
+interface ButtonProps {
+  /**
+   * Is this the principal call to action on the page?
+   */
+  primary?: boolean;
+  /**
+   * What background color to use
+   */
+  backgroundColor?: string;
+  /**
+   * How large should the button be?
+   */
+  size?: 'small' | 'medium' | 'large';
+  /**
+   * Button contents
+   */
+  label: string;
+  /**
+   * Optional click handler
+   */
+  onClick?: () => void;
+}
+
+/**
+ * Primary UI component for user interaction
+ */
+export const Button = ({
+  primary = false,
+  size = 'medium',
+  backgroundColor,
+  label,
+  ...props
+}: ButtonProps) => {
+  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  return (
+    <button
+      type="button"
+      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      style={{ backgroundColor }}
+      {...props}
+    >
+      {label}
+    </button>
+  );
+};
+
+```
+<br/>
+## Description
+  
+  Import the component in your React application:
+```js
+import { Button } from 'button-component';
+```
+You're now ready to use the Button component in your application.
+
+ ### Usage
+The Button component accepts several props to customize its appearance and behavior:
+
+```js
+import React from 'react';
+import { Button } from 'button-component';
+
+const MyComponent = () => {
+  return (
+    <div>
+      <Button
+        primary={true}
+        size="medium"
+        backgroundColor="#007bff"
+        label="Primary Button"
+        onClick={() => {
+          // Handle button click
+        }}
+      />
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+ ### Props
+ 
+  
+<Callout type="info" emoji="ℹ️">
+  ```primary``` (optional, boolean): Indicates if the button is the primary call to action on the page.
+
+```backgroundColor``` (optional, string): Specifies the background color of the button.
+
+```size ```(optional, string): Determines the size of the button. It can be ```'small'```, ```'medium'```, or ```'large'```.
+
+```label``` (required, string): The text displayed on the button.
+
+```onClick``` (optional, function): An optional click handler to execute when the button is clicked.
+</Callout>
+
+
+
+### Examples
+Here are some examples of how to use the Button component:
+
+#### Primary Button
+```js
+<Button primary={true} label="Primary Button" />
+```
+
+
+#### Secondary Button
+```js
+<Button label="Secondary Button" />
+```
+
+#### Large Primary Button with Custom Background Color
+
+```js
+<Button primary={true} size="large" backgroundColor="#ff5722" label="Large Button" />
+
+```
+
+
+</Steps>
