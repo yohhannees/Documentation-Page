@@ -1,0 +1,130 @@
+import { Steps } from 'nextra/components'
+ 
+<Steps>
+### Installation
+ 
+The simplest and fastest way to get up and running with Perago E-service from scratch 
+first go to
+
+import { Callout } from 'nextra/components'
+ 
+<Callout type="info" emoji="ℹ️">
+ [Repository](http://196.189.44.48/Perago/eService-training/_git/eService-training) 
+</Callout>
+ 
+###  Login
+ 
+<Callout type="default" >
+  Login using your provided Credentials
+</Callout>
+<br /><br />
+import Images from '../components/Images'
+
+<Images />
+### Clone The Repository
+<Callout type="default">Clone The Repository</Callout>
+<br />
+<br />
+import Clone from '../components/Clone'
+
+<Clone />
+
+### install the Repository
+
+```bash
+npm install http://196.189.44.48/Perago/eService-training/_git/eService-training
+```
+
+<br />
+import Install from '../components/Install'
+
+<Install />
+
+### Using Nx Console
+
+If you have an existing folder containing a project that you want to integrate into an Nx monorepo using Nx Console, you can follow these steps to seamlessly manage multiple projects within a single codebase.
+
+#### Prerequisites
+
+Before you begin, make sure you have the following prerequisites installed on your system:
+
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
+- [Nx Console](https://nx.dev/latest/angular/getting-started/nx-setup)
+- Git (optional, but recommended for version control)
+
+#### Step 1: Create a New Nx Workspace
+
+1. Navigate to the parent directory where you want to create your Nx monorepo.
+
+2. Run the following command to create a new Nx workspace:
+
+   ```bash
+   npx create-nx-workspace my-monorepo
+   ```
+
+   Replace `my-monorepo` with your desired workspace name. The Nx setup wizard will guide you through the configuration process.
+
+#### Step 2: Move Your Existing Project
+
+1. Move your existing project folder into the newly created Nx workspace. You can do this manually or by using commands like `mv` or your preferred file management tool.
+
+#### Step 3: Generate a New Application (If Required)
+
+If your existing project is an application and you want to manage it as an Nx application, follow these steps:
+
+1. Generate a new Nx application for your existing project:
+
+   ```bash
+   nx generate @nrwl/angular:application my-existing-app
+   ```
+
+   Replace `my-existing-app` with the name of your existing application and adjust the schematic (`@nrwl/angular:application` in this example) to match your project type.
+
+#### Step 4: Update Configuration
+
+1. Nx will generate Nx-specific configuration files such as `nx.json` and `workspace.json`. Review and adjust these files to match the structure and requirements of your existing project.
+
+#### Step 5: Install Dependencies
+
+1. Make sure to install any dependencies required for your existing project by running the following command in your project's directory:
+
+   ```bash
+   yarn install
+   ```
+
+   Or if you use npm:
+
+   ```bash
+   npm install
+   ```
+
+#### Step 6: Customize Your Nx Workspace
+
+1. You can now use Nx Console or Nx CLI to further customize your Nx workspace by generating libraries, APIs, or additional applications to suit your project's needs.
+
+#### Step 7: Run Your Application
+
+1. Run your newly integrated Nx application using the following command:
+
+   ```bash
+   nx serve my-existing-app
+   ```
+
+   Replace `my-existing-app` with the appropriate application name.
+
+#### Step 8: Collaboration and Version Control
+
+1. If your existing project already uses a version control system like Git, you can continue using it within the Nx monorepo. Ensure that your existing project files are correctly tracked and managed.
+
+By following these steps, you can seamlessly integrate your existing project into an Nx monorepo, leveraging Nx's capabilities for managing multiple projects within a unified codebase. Adjust the steps as needed to accommodate your project's specific structure and dependencies.
+
+### Nx Console Documentation
+
+<Callout type="default">
+  [Documentation]( https://nx.dev/getting-started)
+</Callout>
+<br />
+<br />
+
+</Steps>

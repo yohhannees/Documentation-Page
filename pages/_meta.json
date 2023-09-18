@@ -1,9 +1,13 @@
 {
   "index": "Introduction",
   "another": "Another Page",
-  "Libs": "Library",
+  "advanced": "Advanced (A Folder)",
   "about": {
     "title": "About",
+    "type": "page"
+  },
+   "contributers": {
+    "title": "Contributers",
     "type": "page"
   },
   "contact": {
