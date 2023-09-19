@@ -1,3 +1,5 @@
+import { Tabs } from 'nextra/components'
+
 ## LoginForm
 
 The LoginForm component provides a login form to authenticate users.It imports various
@@ -5,20 +7,19 @@ dependencies and hooks such as `yupResolver` from `@hookform/resolvers/yup`, `Bu
 `PasswordInput`, and `TextInput` from `@mantine/core`, `notify` from `@ui`, `useRouter` from
 `next/router`, `useState` from `react`, `useForm` from `react-hook-form`, `useDispatch` from
 `react-redux`, and `yup` for form validation.
-
-**Usage**
-
-```js
+<Tabs items={['Usage', 'Props']}>
+  <Tabs.Tab>
+  ```js
 import LoginForm from './login-form';
 
 function LoginPage() {
   return <LoginForm />;
 }
 ```
+  </Tabs.Tab>
+  <Tabs.Tab>`onLogin` - callback when login succeeds</Tabs.Tab>
 
-**Props**
-
-- `onLogin` - callback when login succeeds
+</Tabs>
 
 **Functionality**
 
@@ -45,9 +46,9 @@ function LoginPage() {
 ## AcceptInvitationForm
 
 The AcceptInvitationForm component allows users to accept an account invitation. Users can set a password if creating a new account.
-
-**Usage**
-
+<Tabs items={['Usage', 'Props']}>
+  <Tabs.Tab>
+ 
 ```js
 import AcceptInvitationForm from './accept-invitation-form';
 
@@ -55,9 +56,10 @@ function InvitePage() {
   return <AcceptInvitationForm />; 
 }
 ```
-**Props**
+  </Tabs.Tab>
+  <Tabs.Tab>This component does not accept any props as it retrieves necessary data using the `useRouter` hook from `next/router`.</Tabs.Tab>
 
-- None
+</Tabs>
 
 **Functionality**
 
