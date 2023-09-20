@@ -1,0 +1,144 @@
+import { Tabs } from 'nextra/components'
+
+## FormBuilder Component
+
+The FormBuilder component generates a form dynamically based on a configuration object passed to it.
+
+<Tabs items={['Usage', 'Props']}>
+  <Tabs.Tab>
+  ```js
+import { FormBuilder } from 'form-builder';
+
+function App() {
+  const formConfig = {/* config object */};
+  
+  return (
+    <FormBuilder 
+      config={formConfig}
+      register={/* */}
+      errors={/* */}
+      control={/* */} 
+    />
+  );
+}
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  {<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>config</td>
+      <td>FormBuilderConfiguration</td>
+      <td>Yes</td>
+      <td>Configuration object for the form</td>
+    </tr>
+    <tr>
+      <td>register</td>
+      <td>Function</td>
+      <td>Yes</td>
+      <td>Register function from React Hook Form</td>
+    </tr>
+    <tr>
+      <td>errors</td>
+      <td>Object</td>
+      <td>Yes</td>
+      <td>Errors object from React Hook Form</td>
+    </tr>
+    <tr>
+      <td>control</td>
+      <td>Object</td>
+      <td>Yes</td>
+      <td>Control object from React Hook Form</td>
+    </tr>
+  </tbody>
+</table>}
+  </Tabs.Tab>
+
+</Tabs>
+## Functionality
+
+**Input generation**
+
+It generates inputs dynamically based on the `inputField.type` specified in each schema.
+
+The supported types are:
+
+- textinput
+- textarea
+- select
+- checkbox
+- radio
+- passwordinput
+- custom
+
+For each type, there is a specific function that renders that input - like generateTextInput, generateSelectInput etc.
+
+The generateForm method checks the type and calls the appropriate render method.
+
+The render methods use React Hook Form to register each input and display errors.
+
+**Multi-language support**
+
+- It supports multi-language inputs by checking the `hasLocal` flag on the schema.
+- If true, it renders inputs for each language in the `locale` array.
+- The name is appended with the locale code like `fieldName.en`.
+
+**Flexibility**
+
+- The config driven approach allows generating any kind of form without touching the component code.
+- Adding a new field is as easy as adding a new schema - no need to modify the component.
+- The `custom` type allows rendering any custom component passed in config.
+
+**Controlled inputs**
+
+- React Hook Form provides full control over the inputs.
+- Values and errors are managed by the parent component.
+- Can integrates with form validation libraries easily.
+- Helper methods like `append`, `remove` allows dynamic fields.
+## Example
+
+```js
+const formConfig = {
+  schemas: [
+    {
+      name: 'firstName',
+      label: 'First Name',
+      inputField: {
+        type: 'textinput',
+        control: {
+          placeholder: 'Enter first name'
+        }
+      }
+    },
+    {
+      name: 'age',
+      label: 'Age',
+      inputField: {
+        type: 'numberinput',
+        control: {
+          placeholder: 'Enter age'
+        }  
+      }
+    }
+  ]
+}
+
+return (
+  <FormBuilder
+    config={formConfig}
+    register={/* */} 
+    errors={/* */}
+    control={/* */}
+  />
+)
+```
+
+The table structure in HTML encapsulates the properties of your form along with their types, requirement status, and a brief description. You can incorporate this HTML snippet in your documentation for a structured and neat presentation.
