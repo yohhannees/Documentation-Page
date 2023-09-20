@@ -1,0 +1,296 @@
+import { Tabs } from 'nextra/components'
+
+## generateSchema Function 
+
+**Overview**
+
+The generateSchema function is a utility function that generates a Yup validation schema based on the specified configuration. It supports generating schemas for string, number, date, and custom input types and can also incorporate locale-specific validations.
+
+<Tabs items={['Usage', 'Props']}>
+  <Tabs.Tab>
+ 
+```js
+import { generateSchema, FormBuilderConfiguration } from 'path-to-your-module';
+
+const config: FormBuilderConfiguration = {
+  // ... your config here
+};
+
+const schema = generateSchema(config);
+
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  **params**
+
+   {<table>
+  <thead>
+    <tr>
+      <th>params</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>config</td>
+      <td>FormBuilderConfiguration</td>
+      <td>Configuration object to build the schema</td>
+    </tr>
+  </tbody>
+</table>}
+
+**FormBuilderConfiguration Type**
+
+{<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>schemas</td>
+      <td>Array of objects</td>
+      <td>List of schema configurations for the form fields</td>
+    </tr>
+    <tr>
+      <td>locale</td>
+      <td>Array of objects</td>
+      <td>List of locale objects for localized validations</td>
+    </tr>
+  </tbody>
+</table>}
+
+**Schema Type in schemas Array**
+
+{<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>string</td>
+      <td>The name of the field</td>
+    </tr>
+    <tr>
+      <td>constraint</td>
+      <td>object</td>
+      <td>Defines the validation rules for the field</td>
+    </tr>
+    <tr>
+      <td>hasLocal</td>
+      <td>boolean</td>
+      <td>Whether to apply locale-specific validations</td>
+    </tr>
+  </tbody>
+</table>}
+
+**Constraint Type**
+
+{<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>inputType</td>
+      <td>string</td>
+      <td>The input type ('string', 'number', 'date', 'custom')</td>
+    </tr>
+    <tr>
+      <td>validationSchema</td>
+      <td>object</td>
+      <td>Specific validation schema based on the input type</td>
+    </tr>
+  </tbody>
+</table>}
+
+**StringValidation Type**
+{<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>required</td>
+      <td>object</td>
+      <td>Specifies whether the field is required. Contains `flag` (boolean) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>length</td>
+      <td>object</td>
+      <td>Specifies the exact length the string should be. Contains `number` (number) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>object</td>
+      <td>Specifies the minimum length the string can be. Contains `number` (number) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>object</td>
+      <td>Specifies the maximum length the string can be. Contains `number` (number) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>object</td>
+      <td>Specifies the specific type of the string (like 'email', 'url', 'uuid'). Contains `valueType` (string) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>lowercase</td>
+      <td>object</td>
+      <td>Specifies if the string should be in lowercase. Contains `flag` (boolean) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>uppercase</td>
+      <td>object</td>
+      <td>Specifies if the string should be in uppercase. Contains `flag` (boolean) and `errorMessage` (string).</td>
+    </tr>
+  </tbody>
+</table>}
+
+**NumberValidation Type**
+
+{<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>required</td>
+      <td>object</td>
+      <td>Specifies whether the field is required. Contains `flag` (boolean) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>object</td>
+      <td>Specifies the minimum value the number can be. Contains `number` (number) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>object</td>
+      <td>Specifies the maximum value the number can be. Contains `number` (number) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>positive</td>
+      <td>object</td>
+      <td>Specifies if the number should be positive. Contains `flag` (boolean) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>negative</td>
+      <td>object</td>
+      <td>Specifies if the number should be negative. Contains `flag` (boolean) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>onlyInteger</td>
+      <td>object</td>
+      <td>Specifies if the number should be an integer. Contains `flag` (boolean) and `errorMessage` (string).</td>
+    </tr>
+  </tbody>
+</table>}
+
+**DateValidation Type**
+
+{<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>required</td>
+      <td>object</td>
+      <td>Specifies whether the field is required. Contains `flag` (boolean) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>object</td>
+      <td>Specifies the minimum date value. Contains `value` (Date) and `errorMessage` (string).</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>object</td>
+      <td>Specifies the maximum date value. Contains `value` (Date) and `errorMessage` (string).</td>
+    </tr>
+  </tbody>
+</table>}
+
+  </Tabs.Tab>
+
+</Tabs>
+
+## Example Usage
+
+```js
+import { generateSchema } from './path-to-your-schema-generator-file';
+import { FormBuilderConfiguration } from '../model/form-builder-config';
+
+const config: FormBuilderConfiguration = {
+  schemas: [
+    {
+      name: 'email',
+      constraint: {
+        inputType: 'string',
+        validationSchema: {
+          required: {
+            flag: true,
+            errorMessage: 'Email is required',
+          },
+          type: {
+            valueType: 'email',
+            errorMessage: 'Invalid email format',
+          },
+        },
+        hasLocal: false,
+      },
+    },
+    {
+      name: 'age',
+      constraint: {
+        inputType: 'number',
+        validationSchema: {
+          required: {
+            flag: true,
+            errorMessage: 'Age is required',
+          },
+          min: {
+            number: 18,
+            errorMessage: 'Age must be at least 18',
+          },
+        },
+        hasLocal: false,
+      },
+    },
+  ],
+  locale: [
+    { code: 'en' },
+    { code: 'am' },
+  ],
+};
+
+const schema = generateSchema(config);
+```
+In this example, an email field and an age field are being validated. The email field is required and must match the email format, while the age field is required and must be at least 18. The schema generated by generateSchema can then be used to validate form data using Yup's validation methods.
