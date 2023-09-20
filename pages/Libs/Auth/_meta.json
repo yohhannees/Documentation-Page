@@ -1,7 +1,6 @@
 {
     "components": "Components",
     "hooks": "Hooks",
-    "model": "Model",
-    "pages": "Pages",
+    "pages": "Page",
     "state": "State"
 }
