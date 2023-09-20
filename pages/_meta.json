@@ -10,10 +10,10 @@
     "title": "Contributers",
     "type": "page"
   },
-  "contact": {
-    "title": "Contact ↗",
+  "Swagger": {
+    "title": "Swagger ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "http://196.189.44.47:3007/#/topics/TopicsController_setBlockedUser",
     "newWindow": true
   }
 }
