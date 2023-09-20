@@ -1,7 +1,8 @@
-import { Bleed } from 'nextra-theme-docs'
+import { Bleed } from "nextra-theme-docs";
 
 # Code Generator
- A code generator built to easily generate code right from the command line
+
+A code generator built to easily generate code right from the command line
 
 import { Callout } from 'nextra/components'
  
@@ -13,121 +14,102 @@ https://plopjs.com/documentation
     
 ## About The Project
 
-<Bleed >
+<Bleed>
   ![Landscape](https://github-production-user-asset-6210df.s3.amazonaws.com/67064862/251739171-d42b7a55-24df-4ac6-a143-873c8a1df791.png)
 </Bleed>
 
 ### Built With
 
-
-
-<Callout type="default" >
-<br/>
- Plop.js<br/>
- Javascript Modules
-</Callout> 
+<Callout type="default">
+  Plop.js - A Node.js library for generating code
+</Callout>
+<Callout type="default">
+  Javascript Modules 
+</Callout>
 ## Getting Started
 
 This generator is built using plop.js, a library used to generate code(config files, components). You see, most of the codes we write here at Perago have similarity and there is a common pattern among the different apps, features and components. And a code one has to write to build a component, let's say a component with CRUD(Create, Read, Update, Delete) features, most probably has already been built before and trying to hard-code this component from scratch is very time-consuming and also violates the basic software engineering principle-DRY(Don't repeat yourself). We also run into the issue of having many kinds of code structures with no one standard. Not to mention components with crud feature take up almost 85% of the codespace we currently have. <br/>
 
 With this generator we aim to solve this issue by converting an already accepted and clean code into a template and generating code by simply changing some variables or names within that template code. The generator accepts input(name, variables, or port number if applicable) from the user from the command line. The detailed instruction on how to use this is explained below.
-<br/>
+
+<br />
 
 ### Prerequisites
 
 To use the generator we need to make sure plop is installed and working.
 
-  ``` bash
-  npm install --save-dev plop
-  ```
+```bash
+npm install --save-dev plop
+```
 
 # Usage
 
 We currently have generators for epic and feature(either a basic feature or feature-crud).
 
 ## Epic Generator
+
 To generate an epic(Example: apps/back-office/registration) we can enter the below commands from some command line. This commands, though, should be called from the root folder.
 
-1. Generate the epic from the nx generator. This will generate the basic files an epic or app should have to be added to the nx projects workspace and be run from the nx console. 
+1. Generate the epic from the nx generator. This will generate the basic files an epic or app should have to be added to the nx projects workspace and be run from the nx console.
 
-<br/> 
+<br />{" "}
 
-<Bleed >
+<Bleed>
   ![Landscape](https://github-production-user-asset-6210df.s3.amazonaws.com/67064862/251747551-4ca9bb3c-c8d1-4225-8de2-20dd4bf89488.png)
 </Bleed>
 
-<br/>
+<br />
 
 2. Use the epic generator from the command line to adjust the additional configurations needed to successfully create an epic. Use command
-   ``` bash
+
+   ```bash
    npm run generate epic
    ```
 
-3. To generate the epic we need 3 inputs: Location(destination folder) of the epic, name of the epic, port number( this is the port number used to locally run it while in development from nx). Running this will successfully generate a basic app shell by adding all the configuration files, folders like pages, store, environment variables, styling configurations. 
-<br/>
+3. To generate the epic we need 3 inputs: Location(destination folder) of the epic, name of the epic, port number( this is the port number used to locally run it while in development from nx). Running this will successfully generate a basic app shell by adding all the configuration files, folders like pages, store, environment variables, styling configurations.
+   <br />
 
-<Bleed >
+<Bleed>
   ![Landscape](https://github-production-user-asset-6210df.s3.amazonaws.com/67064862/251750805-78cd17fe-90e4-4476-85bf-ec588dde5bd9.png)
 </Bleed>
 
-<br/>
+<br />
 
 4. We have successfully generated an app and if we run the app from nx console we will be able to get an app with all the basic epic characteristics we see in other apps, running at the port we provided above.
-<br/>
-<Bleed >
-  ![Landscape](https://github-production-user-asset-6210df.s3.amazonaws.com/67064862/251753300-a8991125-5a01-43da-bf85-9fc9809f0c18.png)
-</Bleed>
-
+   <br />
+   <Bleed>
+     ![Landscape](https://github-production-user-asset-6210df.s3.amazonaws.com/67064862/251753300-a8991125-5a01-43da-bf85-9fc9809f0c18.png)
+   </Bleed>
 
 ## Feature Generator
 
 1. Use the feature generator from the command line. Use command
-```
+
+   ```
    npm run generate feature
    ```
 
+2. It will prompt the user to enter the destination path, feature name, whether you want to add a menu entry to be displayed in the dashboard, and whether the feature to be generated is a crud or a simple feature. A crud feature consists of all the entity list and forms with all the endpoints and queries, whereas a simple feature doesn't have an entity list or form and have only get-endpoint and query.
 
-<br/>
+   And finally it asks for list URL, this is an important URL used for routing to the page consisting of the parent entity list and should be the **SAME** as the routing used to enter that entity-list from the dashboard. It creates a routing folder and subfolder based on the structure given, the structure should also match the pattern: `"/{page-name}/{sub-page-name}" ` this will create a folder with name
+   `{page-name} `and a subfolder with name `{sub-page-name}` in the pages folder of the given feature.
 
-photo
+<Bleed>
+  ![Landscape](https://github-production-user-asset-6210df.s3.amazonaws.com/67064862/251958972-5432f711-9034-492f-b2b7-627a92f01943.png)
+</Bleed>
 
-<br/>
+<br />
 
-3. After entering the above mentioned inputs, we can successfully generate a full feature code with the entity-list and forms included. 
+3. After entering the above mentioned inputs, we can successfully generate a full feature code with the entity-list and forms included.
 
-<br/>
-
- photo
-
-
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+<br />
+<Bleed>
+  ![Landscape](https://github-production-user-asset-6210df.s3.amazonaws.com/67064862/251959131-c45bc579-e3a4-4c69-928c-8d6b1106e2da.png)
+</Bleed>
 
 
+## Contact 
 
-
-
-
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-
-## Contact
-
-Mubarek M. Endrie -  mmexploit1@gmail.com
-
-
-
-
+<Callout type="warning" emoji="📧">
+ Mubarek M. Endrie - mmexploit1@gmail.com
+</Callout>
